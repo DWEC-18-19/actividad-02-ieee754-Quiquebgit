@@ -8,7 +8,11 @@ function ieee754aBinario(numero) {
 	}
 	numero = numero.replace("-", "");
 	var numeroBinario = pasarABinario(numero);
-	var desplazamientos = numeroBinario.toString().indexOf(".")-1;
+	if(numeroBinario.toString().indexOf(".") != -1){
+		var desplazamientos = numeroBinario.toString().indexOf(".")-1;
+	} else {
+		var desplazamientos = numeroBinario.toString().length-1;
+	}
 	var exponente = pasarABinario((desplazamientos+127).toString());
 	while (exponente.toString().length < 8) {
 		exponente = "0"+exponente;
